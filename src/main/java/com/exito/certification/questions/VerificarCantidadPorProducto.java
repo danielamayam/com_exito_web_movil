@@ -13,8 +13,6 @@ import static com.exito.certification.ui.UiProductos.*;
 
 public class VerificarCantidadPorProducto implements Question<Boolean> {
 
-
-
     @Override
     public Boolean answeredBy(Actor actor) {
         boolean response = false;

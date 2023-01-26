@@ -6,7 +6,7 @@ import com.exito.certification.models.MenuModel;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
-import net.serenitybdd.screenplay.actions.Scroll;
+
 
 import static com.exito.certification.ui.UiSeleccionarProductos.*;
 

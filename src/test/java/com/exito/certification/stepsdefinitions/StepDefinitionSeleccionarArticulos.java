@@ -1,5 +1,6 @@
 package com.exito.certification.stepsdefinitions;
 
+import com.exito.certification.exceptions.SeleccionarProductoException;
 import com.exito.certification.models.MenuModel;
 import com.exito.certification.questions.VerificarCantidadPorProducto;
 import com.exito.certification.questions.VerificarCantidadProducto;
@@ -33,18 +34,26 @@ public class StepDefinitionSeleccionarArticulos {
 
     @Then("^Válido los productos agregados$")
     public void válidoLosProductosAgregados() {
-        theActorInTheSpotlight().should(seeThat(VerificarProducto.enElCarrito()));
+        theActorInTheSpotlight().should(seeThat(VerificarProducto.enElCarrito())
+                .orComplainWith(SeleccionarProductoException.class,
+                        SeleccionarProductoException.PRODUCTOS_AGREGADOS)
+        );
 
     }
 
     @Then("^Válido el número de productos en el carro$")
     public void válidoElNúmeroDeProductosEnElCarro() {
-        theActorInTheSpotlight().should(seeThat(VerificarCantidadProducto.enElCarrito()));
+        theActorInTheSpotlight().should(seeThat(VerificarCantidadProducto.enElCarrito())
+                .orComplainWith(SeleccionarProductoException.class,
+                        SeleccionarProductoException.CANTIDAD_DE_PRODUCTOS));
     }
 
     @Then("^Válido la cantidad de cada producto$")
     public void válidoLaCantidadDeCadaProducto() {
-        theActorInTheSpotlight().should(seeThat(VerificarCantidadPorProducto.enElCarrito()));
+        theActorInTheSpotlight().should(seeThat(VerificarCantidadPorProducto.enElCarrito())
+                .orComplainWith(SeleccionarProductoException.class,
+                        SeleccionarProductoException.CANTIDAD_POR_PRODUCTO)
+        );
     }
 
 

@@ -1,6 +1,6 @@
 package com.exito.certification.exceptions;
 
-public class NavegarException extends RuntimeException{
+public class NavegarException extends AssertionError {
 
     private static final String ERROR = "Error al navegar";
 
